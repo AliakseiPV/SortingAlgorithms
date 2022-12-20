@@ -37,6 +37,8 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.AddTextBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BubbleSort = new System.Windows.Forms.Button();
+            this.CocktailSort = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -46,9 +48,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.FillButton);
             this.panel2.Controls.Add(this.FillTextBox);
-            this.panel2.Location = new System.Drawing.Point(12, 112);
+            this.panel2.Location = new System.Drawing.Point(12, 66);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(419, 94);
+            this.panel2.Size = new System.Drawing.Size(419, 74);
             this.panel2.TabIndex = 5;
             // 
             // label2
@@ -83,9 +85,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.AddButton);
             this.panel1.Controls.Add(this.AddTextBox);
-            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Location = new System.Drawing.Point(12, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(419, 94);
+            this.panel1.Size = new System.Drawing.Size(419, 61);
             this.panel1.TabIndex = 4;
             // 
             // label1
@@ -118,14 +120,35 @@
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Location = new System.Drawing.Point(437, 12);
+            this.panel3.Location = new System.Drawing.Point(12, 146);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(633, 194);
+            this.panel3.Size = new System.Drawing.Size(419, 473);
             this.panel3.TabIndex = 6;
+            // 
+            // BubbleSort
+            // 
+            this.BubbleSort.Location = new System.Drawing.Point(437, 146);
+            this.BubbleSort.Name = "BubbleSort";
+            this.BubbleSort.Size = new System.Drawing.Size(128, 31);
+            this.BubbleSort.TabIndex = 7;
+            this.BubbleSort.Text = "Bubble Sort";
+            this.BubbleSort.UseVisualStyleBackColor = true;
+            this.BubbleSort.Click += new System.EventHandler(this.BubbleSort_Click);
+            // 
+            // CocktailSort
+            // 
+            this.CocktailSort.Location = new System.Drawing.Point(437, 183);
+            this.CocktailSort.Name = "CocktailSort";
+            this.CocktailSort.Size = new System.Drawing.Size(128, 31);
+            this.CocktailSort.TabIndex = 8;
+            this.CocktailSort.Text = "Cocktail Sort";
+            this.CocktailSort.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1082, 631);
+            this.Controls.Add(this.CocktailSort);
+            this.Controls.Add(this.BubbleSort);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -150,6 +173,8 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.TextBox AddTextBox;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button BubbleSort;
+        private System.Windows.Forms.Button CocktailSort;
     }
 }
 

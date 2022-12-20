@@ -2,7 +2,7 @@
 
 namespace Algorithm
 {
-    public class CoctailSort<T> : AlgorithmBase<T> where T: IComparable 
+    public class CocktailSort<T> : AlgorithmBase<T> where T: IComparable 
     {
         protected override void MakeSort()
         {
@@ -17,10 +17,9 @@ namespace Algorithm
                     var a = Items[i];
                     var b = Items[i + 1];
 
-                    if (a.CompareTo(b) == 1)
+                    if (Compare(a,b) == 1)
                     {
                         Swap(i, i + 1);
-                        ComparisonCount++;
                     }
                 }
                 right--;
@@ -32,10 +31,9 @@ namespace Algorithm
                     var a = Items[i];
                     var b = Items[i - 1];
 
-                    if (a.CompareTo(b) == -1)
+                    if (Compare(a,b) == -1)
                     {
                         Swap(i, i - 1);
-                        ComparisonCount++;
                     }
                 }
                 left++;
