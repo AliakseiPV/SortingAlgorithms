@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.FillButton = new System.Windows.Forms.Button();
@@ -39,8 +40,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.BubbleSort = new System.Windows.Forms.Button();
             this.CocktailSort = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.InsertionSort = new System.Windows.Forms.Button();
+            this.ShellSort = new System.Windows.Forms.Button();
+            this.TimeLabel = new System.Windows.Forms.Label();
+            this.CompareLabel = new System.Windows.Forms.Label();
+            this.SwapLabel = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -122,7 +130,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Location = new System.Drawing.Point(12, 146);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(419, 473);
+            this.panel3.Size = new System.Drawing.Size(419, 399);
             this.panel3.TabIndex = 6;
             // 
             // BubbleSort
@@ -143,10 +151,68 @@
             this.CocktailSort.TabIndex = 8;
             this.CocktailSort.Text = "Cocktail Sort";
             this.CocktailSort.UseVisualStyleBackColor = true;
+            this.CocktailSort.Click += new System.EventHandler(this.CocktailSort_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // InsertionSort
+            // 
+            this.InsertionSort.Location = new System.Drawing.Point(437, 220);
+            this.InsertionSort.Name = "InsertionSort";
+            this.InsertionSort.Size = new System.Drawing.Size(128, 31);
+            this.InsertionSort.TabIndex = 9;
+            this.InsertionSort.Text = "Insertion Sort";
+            this.InsertionSort.UseVisualStyleBackColor = true;
+            this.InsertionSort.Click += new System.EventHandler(this.InsertionSort_Click);
+            // 
+            // ShellSort
+            // 
+            this.ShellSort.Location = new System.Drawing.Point(437, 257);
+            this.ShellSort.Name = "ShellSort";
+            this.ShellSort.Size = new System.Drawing.Size(128, 31);
+            this.ShellSort.TabIndex = 10;
+            this.ShellSort.Text = "Shell Sort";
+            this.ShellSort.UseVisualStyleBackColor = true;
+            this.ShellSort.Click += new System.EventHandler(this.ShellSort_Click);
+            // 
+            // TimeLabel
+            // 
+            this.TimeLabel.AutoSize = true;
+            this.TimeLabel.Location = new System.Drawing.Point(15, 549);
+            this.TimeLabel.Name = "TimeLabel";
+            this.TimeLabel.Size = new System.Drawing.Size(47, 20);
+            this.TimeLabel.TabIndex = 11;
+            this.TimeLabel.Text = "Time:";
+            this.TimeLabel.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // CompareLabel
+            // 
+            this.CompareLabel.AutoSize = true;
+            this.CompareLabel.Location = new System.Drawing.Point(15, 569);
+            this.CompareLabel.Name = "CompareLabel";
+            this.CompareLabel.Size = new System.Drawing.Size(185, 20);
+            this.CompareLabel.TabIndex = 12;
+            this.CompareLabel.Text = "Number of comparsions: ";
+            // 
+            // SwapLabel
+            // 
+            this.SwapLabel.AutoSize = true;
+            this.SwapLabel.Location = new System.Drawing.Point(15, 589);
+            this.SwapLabel.Name = "SwapLabel";
+            this.SwapLabel.Size = new System.Drawing.Size(168, 20);
+            this.SwapLabel.TabIndex = 13;
+            this.SwapLabel.Text = "Number of exchanges:";
             // 
             // Form1
             // 
-            this.ClientSize = new System.Drawing.Size(1082, 631);
+            this.ClientSize = new System.Drawing.Size(729, 644);
+            this.Controls.Add(this.SwapLabel);
+            this.Controls.Add(this.CompareLabel);
+            this.Controls.Add(this.TimeLabel);
+            this.Controls.Add(this.ShellSort);
+            this.Controls.Add(this.InsertionSort);
             this.Controls.Add(this.CocktailSort);
             this.Controls.Add(this.BubbleSort);
             this.Controls.Add(this.panel3);
@@ -158,7 +224,9 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -175,6 +243,12 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BubbleSort;
         private System.Windows.Forms.Button CocktailSort;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button InsertionSort;
+        private System.Windows.Forms.Button ShellSort;
+        private System.Windows.Forms.Label CompareLabel;
+        private System.Windows.Forms.Label TimeLabel;
+        private System.Windows.Forms.Label SwapLabel;
     }
 }
 

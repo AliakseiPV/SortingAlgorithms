@@ -31,6 +31,7 @@ namespace Algorithm.Tests
         {
             BubbleSort<int> bubble = new BubbleSort<int>();
             bubble.Items.AddRange(Items);
+
             bubble.Sort();
             MatchCheck(bubble);
         }
@@ -40,6 +41,7 @@ namespace Algorithm.Tests
         {
             CocktailSort<int> cocktail = new CocktailSort<int>();
             cocktail.Items.AddRange(Items);
+
             cocktail.Sort();
             MatchCheck(cocktail);
         }
@@ -49,26 +51,9 @@ namespace Algorithm.Tests
         {
             InsertionSort<int> insert = new InsertionSort<int>();
             insert.Items.AddRange(Items);
+
             insert.Sort();
             MatchCheck(insert);
-        }
-
-        [TestMethod()]
-        public void ShellTest()
-        {
-            ShellSort<int> shell = new ShellSort<int>();
-            shell.Items.AddRange(Items);
-            shell.Sort();
-            MatchCheck(shell);
-        }
-
-        [TestMethod()]
-        public void BaseSortTest()
-        {
-            AlgorithmBase<int> baseSort = new AlgorithmBase<int>();
-            baseSort.Items.AddRange(Items);
-            baseSort.Sort();
-            MatchCheck(baseSort);
         }
 
         private void MatchCheck(AlgorithmBase<int> sort)

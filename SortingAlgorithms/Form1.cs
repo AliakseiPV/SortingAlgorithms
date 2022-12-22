@@ -39,9 +39,8 @@ namespace SortingAlgorithmsView
             {
                 var item = new SortedItem(value, items.Count);
                 items.Add(item);
-                panel3.Controls.Add(item.progressBar);
-                panel3.Controls.Add(item.label);
             }
+            RefreshItems();
             AddTextBox.Text = "";
         }
 
@@ -55,45 +54,106 @@ namespace SortingAlgorithmsView
                 {
                     var item = new SortedItem(random.Next(0, 100), items.Count);
                     items.Add(item);
-                    panel3.Controls.Add(item.progressBar);
-                    panel3.Controls.Add(item.label);
                 }
-                FillTextBox.Text = "";
-            } 
+            }
+            RefreshItems();
+            FillTextBox.Text = "";
+        }
+
+        private void DrawItems(List<SortedItem> items)
+        {
+            panel3.Controls.Clear();
+
+            foreach (var item in items)
+            {
+                panel3.Controls.Add(item.progressBar);
+                panel3.Controls.Add(item.label);
+            }
+            panel3.Refresh();
+        }
+
+        private void RefreshItems()
+        {
+            foreach (var item in items)
+            {
+                item.Refresh();
+            }
+            DrawItems(items);
+        }
+
+        private void GetInfo(AlgorithmBase<SortedItem> sort)
+        {
+            var time = sort.Sort();
+            TimeLabel.Text = $"Time: {time.Milliseconds} milliseconds";
+            CompareLabel.Text = "Number of comparison: " + sort.ComparisonCount;
+            SwapLabel.Text = "Number of exchanges: " + sort.SwapCount;
         }
 
         private void BubbleSort_Click(object sender, EventArgs e)
         {
-            var bubble = new BubbleSort<SortedItem>(items);
-            bubble.CompareEvent += Bubble_CompareEvent;
-            bubble.SwapEvent += Bubble_SwapEvent;
-            bubble.Sort();
+            RefreshItems();
 
+            var bubble = new BubbleSort<SortedItem>(items);
+            bubble.CompareEvent += Sort_CompareEvent;
+            bubble.SwapEvent += Sort_SwapEvent;
+            GetInfo(bubble);
         }
 
-        private void Bubble_SwapEvent(object sender, Tuple<SortedItem, SortedItem> e)
+        private void CocktailSort_Click(object sender, EventArgs e)
         {
-            var temp = e.Item1.Value;
-            e.Item1.SetValue(e.Item2.Value);
-            e.Item1.SetColor(Color.Yellow);
+            RefreshItems();
 
-            e.Item2.SetValue(temp);
-            e.Item2.SetColor(Color.Red);
+            var coctail = new CocktailSort<SortedItem>(items);
+            coctail.CompareEvent += Sort_CompareEvent;
+            coctail.SwapEvent += Sort_SwapEvent;
+            coctail.Sort();
+            GetInfo(coctail);
+        }
 
-            
+        private void InsertionSort_Click(object sender, EventArgs e)
+        {
+            RefreshItems();
+
+            var insert = new InsertionSort<SortedItem>(items);
+            insert.CompareEvent += Sort_CompareEvent;
+            insert.SwapEvent += Sort_SwapEvent;
+            insert.Sort();
+            GetInfo(insert);
+        }
+
+        private void ShellSort_Click(object sender, EventArgs e)
+        {
+            RefreshItems();
+
+            var shell = new ShellSort<SortedItem>(items);
+            shell.CompareEvent += Sort_CompareEvent;
+            shell.SwapEvent += Sort_SwapEvent;
+            shell.Sort();
+            GetInfo(shell);
+        }
+
+        private void Sort_SwapEvent(object sender, Tuple<SortedItem, SortedItem> e)
+        {
+            var temp = e.Item1.Number;
+            e.Item1.SetPosition(e.Item2.Number);
+            e.Item2.SetPosition(temp);
+
+            panel3.Refresh();
+
+            e.Item1.SetColor(Color.WhiteSmoke);
+            e.Item2.SetColor(Color.WhiteSmoke);
             panel3.Refresh();
         }
 
-        private void Bubble_CompareEvent(object sender, Tuple<SortedItem, SortedItem> e)
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Sort_CompareEvent(object sender, Tuple<SortedItem, SortedItem> e)
         {
             e.Item1.SetColor(Color.Red);
             e.Item2.SetColor(Color.Yellow);
-        }
-
-        private void Swap(SortedItem firstTool, SortedItem secondTool)
-        {
-            
-
         }
 
     }

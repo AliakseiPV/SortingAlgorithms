@@ -13,10 +13,14 @@ namespace SortingAlgorithms
         public ProgressBar progressBar { get; private set; }
         public Label label { get; private set; }
         public int Value { get; private set; }
+        public int Number { get; private set; }
+        public int StartNumber { get; private set; }
 
         public SortedItem(int value, int number)
         {
             Value = value;
+            Number = number;
+            StartNumber = number;
             progressBar = new ProgressBar();
             label = new Label();
 
@@ -45,11 +49,27 @@ namespace SortingAlgorithms
             label.BackColor = color;
         }
 
-        public void SetValue(int value)
+        public void SetPosition(int number)
         {
-            Value = value;
-            progressBar.Value = value;
-            label.Text = value.ToString();
+            Number = number;
+            var y = number * 20;
+
+            progressBar.Location = new Point(42, y);
+            progressBar.Name = "progressBar" + number;
+            label.Location = new Point(9, y);
+            label.Name = "label" + number;
+
+        }
+
+        public void Refresh()
+        {
+            Number = StartNumber;
+            var y = Number * 20;
+
+            progressBar.Location = new Point(42, y);
+            progressBar.Name = "progressBar" + Number;
+            label.Location = new Point(9, y);
+            label.Name = "label" + Number;
         }
 
         public int CompareTo(object obj)
@@ -64,5 +84,9 @@ namespace SortingAlgorithms
             }
         }
 
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
     }
 }
