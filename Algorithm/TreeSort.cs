@@ -15,9 +15,7 @@ namespace Algorithm
         protected override void MakeSort()
         {
             var tree = new Tree<T>(Items);
-            var sorted = tree.InOrder();
-            Items = sorted;
-
+            Items = tree.InOrder();
 
         }
     }

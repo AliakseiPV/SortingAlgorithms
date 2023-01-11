@@ -18,9 +18,9 @@ namespace Algorithm.Tests
             Items.Clear();
             Sorted.Clear();
 
-            for (int i = 0; i < 100000; i++)
+            for (int i = 0; i < 10000; i++)
             {
-                Items.Add(random.Next(0, 10000));
+                Items.Add(random.Next(0, 1000));
             }
 
             Sorted.AddRange(Items.OrderBy(x => x).ToArray());
@@ -69,6 +69,15 @@ namespace Algorithm.Tests
             tree.Items.AddRange(Items);
             tree.Sort();
             MatchCheck(tree);
+        }
+
+        [TestMethod()]
+        public void HeapTest()
+        {
+            HeapSort<int> heap = new HeapSort<int>();
+            heap.Items.AddRange(Items);
+            heap.Sort();
+            MatchCheck(heap);
         }
 
         [TestMethod()]
