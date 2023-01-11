@@ -18,9 +18,9 @@ namespace Algorithm.Tests
             Items.Clear();
             Sorted.Clear();
 
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < 100000; i++)
             {
-                Items.Add(random.Next(0, 1000));
+                Items.Add(random.Next(0, 10000));
             }
 
             Sorted.AddRange(Items.OrderBy(x => x).ToArray());
@@ -60,6 +60,15 @@ namespace Algorithm.Tests
             shell.Items.AddRange(Items);
             shell.Sort();
             MatchCheck(shell);
+        }
+
+        [TestMethod()]
+        public void TreeTest()
+        {
+            TreeSort<int> tree = new TreeSort<int>();
+            tree.Items.AddRange(Items);
+            tree.Sort();
+            MatchCheck(tree);
         }
 
         [TestMethod()]
