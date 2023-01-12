@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Algorithm.DataStructures;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,10 +75,18 @@ namespace Algorithm.Tests
         [TestMethod()]
         public void HeapTest()
         {
-            HeapSort<int> heap = new HeapSort<int>();
-            heap.Items.AddRange(Items);
+            var heap = new Heap<int>(Items);
             heap.Sort();
             MatchCheck(heap);
+        }
+
+        [TestMethod()]
+        public void SelectionTest()
+        {
+            SelectionSort<int> selectionSort = new SelectionSort<int>();
+            selectionSort.Items.AddRange(Items);
+            selectionSort.Sort();
+            MatchCheck(selectionSort);
         }
 
         [TestMethod()]

@@ -46,6 +46,9 @@
             this.TimeLabel = new System.Windows.Forms.Label();
             this.CompareLabel = new System.Windows.Forms.Label();
             this.SwapLabel = new System.Windows.Forms.Label();
+            this.TreeSort = new System.Windows.Forms.Button();
+            this.HeapSort = new System.Windows.Forms.Button();
+            this.SelectionSort = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -205,9 +208,42 @@
             this.SwapLabel.TabIndex = 13;
             this.SwapLabel.Text = "Number of exchanges:";
             // 
+            // TreeSort
+            // 
+            this.TreeSort.Location = new System.Drawing.Point(437, 294);
+            this.TreeSort.Name = "TreeSort";
+            this.TreeSort.Size = new System.Drawing.Size(128, 31);
+            this.TreeSort.TabIndex = 14;
+            this.TreeSort.Text = "Tree Sort";
+            this.TreeSort.UseVisualStyleBackColor = true;
+            this.TreeSort.Click += new System.EventHandler(this.TreeSort_Click);
+            // 
+            // HeapSort
+            // 
+            this.HeapSort.Location = new System.Drawing.Point(437, 331);
+            this.HeapSort.Name = "HeapSort";
+            this.HeapSort.Size = new System.Drawing.Size(128, 31);
+            this.HeapSort.TabIndex = 15;
+            this.HeapSort.Text = "Heap Sort";
+            this.HeapSort.UseVisualStyleBackColor = true;
+            this.HeapSort.Click += new System.EventHandler(this.HeapSort_Click);
+            // 
+            // SelectionSort
+            // 
+            this.SelectionSort.Location = new System.Drawing.Point(437, 368);
+            this.SelectionSort.Name = "SelectionSort";
+            this.SelectionSort.Size = new System.Drawing.Size(128, 31);
+            this.SelectionSort.TabIndex = 16;
+            this.SelectionSort.Text = "Selection Sort";
+            this.SelectionSort.UseVisualStyleBackColor = true;
+            this.SelectionSort.Click += new System.EventHandler(this.SelectionSort_Click);
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(729, 644);
+            this.Controls.Add(this.SelectionSort);
+            this.Controls.Add(this.HeapSort);
+            this.Controls.Add(this.TreeSort);
             this.Controls.Add(this.SwapLabel);
             this.Controls.Add(this.CompareLabel);
             this.Controls.Add(this.TimeLabel);
@@ -249,6 +285,9 @@
         private System.Windows.Forms.Label CompareLabel;
         private System.Windows.Forms.Label TimeLabel;
         private System.Windows.Forms.Label SwapLabel;
+        private System.Windows.Forms.Button HeapSort;
+        private System.Windows.Forms.Button TreeSort;
+        private System.Windows.Forms.Button SelectionSort;
     }
 }
 

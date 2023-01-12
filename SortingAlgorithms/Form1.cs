@@ -1,4 +1,5 @@
 ﻿using Algorithm;
+using Algorithm.DataStructures;
 using SortingAlgorithms;
 using System;
 using System.Collections.Generic;
@@ -81,9 +82,20 @@ namespace SortingAlgorithmsView
             DrawItems(items);
         }
 
-        private void GetInfo(AlgorithmBase<SortedItem> sort)
+        private void BtnClick(AlgorithmBase<SortedItem> sort)
         {
+            RefreshItems();
+
+            for (int i = 0; i < sort.Items.Count; i++)
+            {
+                sort.Items[i].SetPosition(i);
+            }
+            panel3.Refresh();
+
+            sort.CompareEvent += Sort_CompareEvent;
+            sort.SwapEvent += Sort_SwapEvent;
             var time = sort.Sort();
+
             TimeLabel.Text = $"Time: {time.Milliseconds} milliseconds";
             CompareLabel.Text = "Number of comparison: " + sort.ComparisonCount;
             SwapLabel.Text = "Number of exchanges: " + sort.SwapCount;
@@ -91,45 +103,44 @@ namespace SortingAlgorithmsView
 
         private void BubbleSort_Click(object sender, EventArgs e)
         {
-            RefreshItems();
-
             var bubble = new BubbleSort<SortedItem>(items);
-            bubble.CompareEvent += Sort_CompareEvent;
-            bubble.SwapEvent += Sort_SwapEvent;
-            GetInfo(bubble);
+            BtnClick(bubble);
         }
 
         private void CocktailSort_Click(object sender, EventArgs e)
         {
-            RefreshItems();
-
             var coctail = new CocktailSort<SortedItem>(items);
-            coctail.CompareEvent += Sort_CompareEvent;
-            coctail.SwapEvent += Sort_SwapEvent;
-            coctail.Sort();
-            GetInfo(coctail);
+            BtnClick(coctail);
         }
 
         private void InsertionSort_Click(object sender, EventArgs e)
         {
-            RefreshItems();
-
             var insert = new InsertionSort<SortedItem>(items);
-            insert.CompareEvent += Sort_CompareEvent;
-            insert.SwapEvent += Sort_SwapEvent;
-            insert.Sort();
-            GetInfo(insert);
+            BtnClick(insert);
         }
 
         private void ShellSort_Click(object sender, EventArgs e)
         {
-            RefreshItems();
-
             var shell = new ShellSort<SortedItem>(items);
-            shell.CompareEvent += Sort_CompareEvent;
-            shell.SwapEvent += Sort_SwapEvent;
-            shell.Sort();
-            GetInfo(shell);
+            BtnClick(shell);
+        }
+
+        private void TreeSort_Click(object sender, EventArgs e)
+        {
+            var tree = new TreeSort<SortedItem>(items);
+            BtnClick(tree);
+        }
+
+        private void HeapSort_Click(object sender, EventArgs e)
+        {
+            var heap = new Heap<SortedItem>(items);
+            BtnClick(heap);
+        }
+
+        private void SelectionSort_Click(object sender, EventArgs e)
+        {
+            var select = new SelectionSort<SortedItem>(items);
+            BtnClick(select);
         }
 
         private void Sort_SwapEvent(object sender, Tuple<SortedItem, SortedItem> e)
@@ -138,10 +149,6 @@ namespace SortingAlgorithmsView
             e.Item1.SetPosition(e.Item2.Number);
             e.Item2.SetPosition(temp);
 
-            panel3.Refresh();
-
-            e.Item1.SetColor(Color.WhiteSmoke);
-            e.Item2.SetColor(Color.WhiteSmoke);
             panel3.Refresh();
         }
 
@@ -154,7 +161,14 @@ namespace SortingAlgorithmsView
         {
             e.Item1.SetColor(Color.Red);
             e.Item2.SetColor(Color.Yellow);
+            panel3.Refresh();
+            Thread.Sleep(50);
+
+            e.Item1.SetColor(Color.WhiteSmoke);
+            e.Item2.SetColor(Color.WhiteSmoke);
+            panel3.Refresh();
         }
 
+        
     }
 }

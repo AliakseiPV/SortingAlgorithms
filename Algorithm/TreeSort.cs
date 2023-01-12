@@ -16,7 +16,6 @@ namespace Algorithm
         {
             var tree = new Tree<T>(Items);
             Items = tree.InOrder();
-
         }
     }
 }

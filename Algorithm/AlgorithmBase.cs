@@ -17,7 +17,6 @@ namespace Algorithm
         {
             Items.AddRange(items);
         }
-
         public AlgorithmBase() { }
 
         protected void Swap(int positionA, int positionB)
